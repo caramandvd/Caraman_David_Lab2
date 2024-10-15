@@ -4,6 +4,7 @@ using Caraman_David_Lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Caraman_David_Lab2.Migrations
 {
     [DbContext(typeof(Caraman_David_Lab2Context))]
-    partial class Caraman_David_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20241015081612_PublishingDate")]
+    partial class PublishingDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,9 +40,6 @@ namespace Caraman_David_Lab2.Migrations
                     b.Property<decimal>("Price")
                         .HasColumnType("decimal(6, 2)");
 
-                    b.Property<int?>("PublisherID")
-                        .HasColumnType("int");
-
                     b.Property<DateTime>("PublishingDate")
                         .HasColumnType("datetime2");
 
@@ -49,40 +49,7 @@ namespace Caraman_David_Lab2.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("PublisherID");
-
                     b.ToTable("Book");
-                });
-
-            modelBuilder.Entity("Caraman_David_Lab2.Models.Publisher", b =>
-                {
-                    b.Property<int>("ID")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"));
-
-                    b.Property<string>("PublisherName")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("ID");
-
-                    b.ToTable("Publisher");
-                });
-
-            modelBuilder.Entity("Caraman_David_Lab2.Models.Book", b =>
-                {
-                    b.HasOne("Caraman_David_Lab2.Models.Publisher", "Publisher")
-                        .WithMany("Books")
-                        .HasForeignKey("PublisherID");
-
-                    b.Navigation("Publisher");
-                });
-
-            modelBuilder.Entity("Caraman_David_Lab2.Models.Publisher", b =>
-                {
-                    b.Navigation("Books");
                 });
 #pragma warning restore 612, 618
         }

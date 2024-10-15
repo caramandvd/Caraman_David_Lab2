@@ -15,5 +15,6 @@ namespace Caraman_David_Lab2.Data
         }
 
         public DbSet<Caraman_David_Lab2.Models.Book> Book { get; set; } = default!;
+        public DbSet<Caraman_David_Lab2.Models.Publisher> Publisher { get; set; } = default!;
     }
 }
