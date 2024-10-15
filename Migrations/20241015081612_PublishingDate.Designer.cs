@@ -4,6 +4,7 @@ using Caraman_David_Lab2.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Caraman_David_Lab2.Migrations
 {
     [DbContext(typeof(Caraman_David_Lab2Context))]
-    partial class Caraman_David_Lab2ContextModelSnapshot : ModelSnapshot
+    [Migration("20241015081612_PublishingDate")]
+    partial class PublishingDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
