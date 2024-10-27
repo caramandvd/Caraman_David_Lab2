@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Caraman_David_Lab2.Data;
 using Caraman_David_Lab2.Models;
 
-namespace Caraman_David_Lab2.Pages.Books
+namespace Caraman_David_Lab2.Pages.Authors
 {
     public class IndexModel : PageModel
     {
@@ -19,11 +19,11 @@ namespace Caraman_David_Lab2.Pages.Books
             _context = context;
         }
 
-        public IList<Book> Book { get;set; } = default!;
+        public IList<Author> Author { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            Book = await _context.Book.Include(b=>b.Publisher).Include(b=>b.Author).ToListAsync();
+            Author = await _context.Author.ToListAsync();
         }
     }
 }
