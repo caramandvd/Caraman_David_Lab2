@@ -15,17 +15,19 @@
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Title)
-            </th>
+                </th>
             <th>
-                @Html.DisplayNameFor(model => model.Book[0].Author)
-            </th>
+                @Html.DisplayNameFor(model => model.Book[0].Author.FirstName)
+                </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Price)
-            </th>
-            <th>@Html.DisplayNameFor(model => model.Book[0].PublishingDate)</th>
+                </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Book[0].PublishingDate)
+                </th>
             <th>
                 @Html.DisplayNameFor(model => model.Book[0].Publisher.PublisherName)
-            </th>
+                </th>
             <th></th>
         </tr>
     </thead>
